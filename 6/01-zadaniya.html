@@ -188,13 +188,11 @@
       const li = document.createElement('li');
       if (w.dir === 'h') {
         nAcross++;
-        li.innerHTML = '<b>' + nAcross + '.</b> ' + w.clue +
-          ' <em>(' + w.word.length + ')</em>';
+        li.innerHTML = '<b>' + nAcross + '.</b> ' + w.clue;
         acrossEl.appendChild(li);
       } else {
         nDown++;
-        li.innerHTML = '<b>' + nDown + '.</b> ' + w.clue +
-          ' <em>(' + w.word.length + ')</em>';
+        li.innerHTML = '<b>' + nDown + '.</b> ' + w.clue;
         downEl.appendChild(li);
       }
     });
