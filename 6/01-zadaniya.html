@@ -105,7 +105,7 @@
   (function () {
     // ============================================================
     // СЕТКА КРОССВОРДА 12×12
-    // Слова: ДАННЫЕ, ЯСНОСТЬ, ИНФОРМАТИКА, ПОЛНОТА, ТЕХНОЛОГИИ, ИНФОРМАЦИЯ
+    // Слова: ИНФОРМАТИКА, ДАННЫЕ, ПОЛНОТА, ЯСНОСТЬ, ТЕХНОЛОГИИ, ИНФОРМАЦИЯ
     // Пересечения с ИНФОРМАТИКА.
     // ============================================================
     const SIZE = 12;
@@ -128,7 +128,7 @@
         clue: 'Сведения об объектах и событиях окружающего мира' }
     ];
 
-    // Строим карту: "r,c" → { letter, wordId }
+    // Строим карту: "r,c" → { letter }
     const cells = {};
     WORDS.forEach(function (w) {
       for (let i = 0; i < w.word.length; i++) {
@@ -137,6 +137,14 @@
         if (r >= SIZE || c >= SIZE) return;
         cells[r + ',' + c] = { letter: w.word[i] };
       }
+    });
+
+    // Определяем клетки, где начинаются слова (для номеров)
+    const startNumbers = {};
+    WORDS.forEach(function (w) {
+      const key = w.row + ',' + w.col;
+      if (!startNumbers[key]) startNumbers[key] = [];
+      startNumbers[key].push(w.id);
     });
 
     // Рисуем сетку
@@ -151,6 +159,16 @@
 
         if (cell) {
           div.classList.add('cw-active');
+
+          // Номер в углу — если здесь начинается слово
+          const key = r + ',' + c;
+          if (startNumbers[key]) {
+            const numDiv = document.createElement('span');
+            numDiv.className = 'cw-num';
+            numDiv.textContent = startNumbers[key].join(',');
+            div.appendChild(numDiv);
+          }
+
           const input = document.createElement('input');
           input.type = 'text';
           input.maxLength = 1;
@@ -158,7 +176,6 @@
           input.autocomplete = 'off';
           input.addEventListener('input', function () {
             this.value = this.value.replace(/[^А-ЯЁа-яё]/g, '').toUpperCase();
-            // Автопереход
             const all = gridEl.querySelectorAll('.cw-cell input');
             const idx = Array.from(all).indexOf(this);
             if (this.value && idx + 1 < all.length) all[idx + 1].focus();
@@ -179,23 +196,20 @@
       }
     }
 
-    // Подсказки
+    // Подсказки — сквозные номера, как в клетках
     const acrossEl = document.getElementById('cwAcross');
     const downEl = document.getElementById('cwDown');
-    let nAcross = 0, nDown = 0;
 
     WORDS.forEach(function (w) {
       const li = document.createElement('li');
-      if (w.dir === 'h') {
-        nAcross++;
-        li.innerHTML = '<b>' + nAcross + '.</b> ' + w.clue;
-        acrossEl.appendChild(li);
-      } else {
-        nDown++;
-        li.innerHTML = '<b>' + nDown + '.</b> ' + w.clue;
-        downEl.appendChild(li);
-      }
+      li.innerHTML = '<b>' + w.id + '.</b> ' + w.clue;
+      if (w.dir === 'h') acrossEl.appendChild(li);
+      else downEl.appendChild(li);
     });
+
+    if (downEl.children.length === 0) {
+      downEl.innerHTML = '<li style="list-style:none;color:#999;">— по вертикали нет —</li>';
+    }
 
     // Кнопка «Проверить»
     document.getElementById('cwCheck').addEventListener('click', function () {
@@ -216,7 +230,7 @@
       const result = document.getElementById('cwResult');
       if (correct === total) {
         result.className = 'result-box good show';
-        result.textContent = '🎉 Молодец! Все буквы верны! (' + correct + '/' + total + ')';
+        result.textContent = '🎉 Молодец! Все буквы верны!';
         if (typeof markDone === 'function') markDone('ex5');
       } else {
         result.className = 'result-box bad show';
@@ -277,11 +291,23 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
   }
   .cw-cell.cw-empty { background: transparent; }
   .cw-cell.cw-active {
     background: #fff;
     border: 1px solid #c7bff5;
+  }
+  .cw-num {
+    position: absolute;
+    top: 1px;
+    left: 3px;
+    font-size: .55rem;
+    font-weight: 800;
+    color: #5b3df5;
+    line-height: 1;
+    pointer-events: none;
+    z-index: 2;
   }
   .cw-cell input {
     width: 100%;
@@ -297,6 +323,7 @@
     text-transform: uppercase;
     border-radius: 4px;
     padding: 0;
+    padding-top: 10px;
   }
   .cw-cell input:focus {
     background: #eef2ff;
@@ -329,11 +356,6 @@
     color: #1e1b4b;
   }
   .cw-col li { margin-bottom: 6px; }
-  .cw-col li em {
-    color: #5b5b7a;
-    font-style: normal;
-    font-size: .85rem;
-  }
   .cw-buttons {
     display: flex;
     flex-wrap: wrap;
@@ -359,6 +381,7 @@
     .cw-clues { grid-template-columns: 1fr; }
     .cw-grid { max-width: 100%; }
     .cw-cell input { font-size: .85rem; }
+    .cw-num { font-size: .48rem; }
   }
   </style>
 </div>
