@@ -1,3 +1,6 @@
+<!-- ============================================================
+     УПРАЖНЕНИЕ 1. СООТНЕСИ
+     ============================================================ -->
 <div data-type="match">
   <div data-pair="Информация|Сведения об объектах и событиях окружающего мира"></div>
   <div data-pair="Данные|Сведения, представленные на одном из формальных языков"></div>
@@ -5,6 +8,9 @@
   <div data-pair="Компьютерные технологии|Технологии работы с данными, основанные на применении компьютеров"></div>
 </div>
 
+<!-- ============================================================
+     УПРАЖНЕНИЕ 2. ЗАПОЛНИ ПРОПУСКИ
+     ============================================================ -->
 <div data-type="fill">
   <div data-task="Информация обладает рядом свойств. ___ — информация должна всесторонне отражать сведения о предмете или явлении."
        data-answers="полнота|полной"></div>
@@ -16,58 +22,345 @@
        data-answers="ясность|ясной|понятность|понятной"></div>
 </div>
 
+<!-- ============================================================
+     УПРАЖНЕНИЕ 3. ВЕРНО / НЕВЕРНО
+     ============================================================ -->
 <div data-type="tf">
   <div data-statement="Из данных можно извлечь информацию." data-answer="true"></div>
   <div data-statement="В информатике термины «информация» и «данные» часто употребляют как синонимы." data-answer="true"></div>
   <div data-statement="Аппаратное обеспечение по-английски — Software." data-answer="false"></div>
-  <div data-statement="Компьютерные технологии называют также информационными технологиями (ИТ) или информационно-коммуникационными технологиями (ИКТ)." data-answer="true"></div>
+  <div data-statement="Компьютерные технологии называют также информационными технологиями (ИТ)." data-answer="true"></div>
   <div data-statement="Алгоритмическое обеспечение обозначают словом Brainware." data-answer="true"></div>
 </div>
 
+<!-- ============================================================
+     УПРАЖНЕНИЕ 4. ВЫБЕРИ ОТВЕТ
+     ============================================================ -->
 <div data-type="quiz">
-  <div data-question="Найди лишнее: Полнота, актуальность, достоверность, клавиатура">
+  <div data-question="Что из перечисленного НЕ является свойством информации?">
     <div data-option="Полнота"></div>
-    <div data-option="Актуальность"></div>
     <div data-option="Клавиатура"></div>
-    <div data-correct="2"></div>
+    <div data-option="Актуальность"></div>
+    <div data-correct="1"></div>
   </div>
-
-  <div data-question="Найди лишнее: Информация, данные, информатика, компьютерные технологии">
+  <div data-question="Какое понятие НЕ является базовым в информатике?">
     <div data-option="Информация"></div>
     <div data-option="Данные"></div>
     <div data-option="Компьютерные технологии"></div>
     <div data-correct="2"></div>
   </div>
-
-  <div data-question="Найди лишнее: Hardware, Software, Brainware, ясность">
+  <div data-question="Что из перечисленного НЕ относится к составляющим компьютерных технологий?">
     <div data-option="Hardware"></div>
     <div data-option="Software"></div>
     <div data-option="Ясность"></div>
     <div data-correct="2"></div>
   </div>
-
-  <div data-question="Найди лишнее: Русский язык, белорусский язык, английский язык, нотная грамота">
+  <div data-question="Какой язык НЕ является естественным?">
     <div data-option="Русский язык"></div>
     <div data-option="Белорусский язык"></div>
     <div data-option="Нотная грамота"></div>
     <div data-correct="2"></div>
   </div>
-
-  <div data-question="Найди лишнее: Полнота, актуальность, достоверность, ясность, микрофон">
+  <div data-question="Что из перечисленного НЕ является свойством информации?">
     <div data-option="Полнота"></div>
-    <div data-option="Достоверность"></div>
     <div data-option="Микрофон"></div>
-    <div data-correct="2"></div>
+    <div data-option="Достоверность"></div>
+    <div data-correct="1"></div>
   </div>
 </div>
 
+<!-- ============================================================
+     УПРАЖНЕНИЕ 5. КРОССВОРД
+     ============================================================ -->
 <div data-type="crossword">
-  <div data-clue="Сведения об объектах и событиях окружающего мира" data-answer="ИНФОРМАЦИЯ"></div>
-  <div data-clue="Свойство информации: важность и необходимость в текущий момент времени" data-answer="АКТУАЛЬНОСТЬ"></div>
-  <div data-clue="Сведения, представленные на одном из формальных языков" data-answer="ДАННЫЕ"></div>
-  <div data-clue="Свойство информации: отражение только верных сведений" data-answer="ДОСТОВЕРНОСТЬ"></div>
-  <div data-clue="Наука, изучающая методы создания, представления, хранения, передачи, обработки и использования информации" data-answer="ИНФОРМАТИКА"></div>
-  <div data-clue="Свойство информации: всестороннее отражение сведений о предмете или явлении" data-answer="ПОЛНОТА"></div>
-  <div data-clue="Свойство информации: форма, доступная для восприятия" data-answer="ЯСНОСТЬ"></div>
-  <div data-clue="Аппаратное обеспечение по-английски" data-answer="HARDWARE"></div>
+  <div class="cw-wrap">
+
+    <div class="cw-header">
+      <h3>📝 Упражнение 5. Кроссворд</h3>
+      <p>Впиши буквы в клетки. Слова пересекаются друг с другом.</p>
+    </div>
+
+    <div class="cw-grid" id="cwGrid"></div>
+
+    <div class="cw-clues">
+      <div class="cw-col">
+        <h4>По горизонтали</h4>
+        <ol id="cwAcross"></ol>
+      </div>
+      <div class="cw-col">
+        <h4>По вертикали</h4>
+        <ol id="cwDown"></ol>
+      </div>
+    </div>
+
+    <div class="cw-buttons">
+      <button class="btn check" id="cwCheck" type="button">✅ Проверить</button>
+      <button class="btn show" id="cwShow" type="button">👀 Показать ответ</button>
+    </div>
+
+    <div class="result-box" id="cwResult"></div>
+  </div>
+
+  <script>
+  (function () {
+    // ============================================================
+    // СЕТКА КРОССВОРДА 12×12
+    // Слова: ДАННЫЕ, ЯСНОСТЬ, ИНФОРМАТИКА, ПОЛНОТА, ТЕХНОЛОГИИ, ИНФОРМАЦИЯ
+    // Пересечения с ИНФОРМАТИКА.
+    // ============================================================
+    const SIZE = 12;
+
+    const WORDS = [
+      // --- ГОРИЗОНТАЛЬ ---
+      { id: 1, word: 'ИНФОРМАТИКА', row: 2, col: 0, dir: 'h',
+        clue: 'Наука, изучающая методы создания, представления, хранения, передачи, обработки и использования информации' },
+
+      // --- ВЕРТИКАЛЬ ---
+      { id: 2, word: 'ДАННЫЕ', row: 0, col: 1, dir: 'v',
+        clue: 'Сведения, представленные на одном из формальных языков' },
+      { id: 3, word: 'ПОЛНОТА', row: 1, col: 3, dir: 'v',
+        clue: 'Свойство информации: всестороннее отражение сведений о предмете или явлении' },
+      { id: 4, word: 'ЯСНОСТЬ', row: 0, col: 8, dir: 'v',
+        clue: 'Свойство информации: форма, доступная для восприятия' },
+      { id: 5, word: 'ТЕХНОЛОГИИ', row: 2, col: 7, dir: 'v',
+        clue: 'Технологии работы с данными, основанные на применении компьютеров' },
+      { id: 6, word: 'ИНФОРМАЦИЯ', row: 2, col: 0, dir: 'v',
+        clue: 'Сведения об объектах и событиях окружающего мира' }
+    ];
+
+    // Строим карту: "r,c" → { letter, wordId }
+    const cells = {};
+    WORDS.forEach(function (w) {
+      for (let i = 0; i < w.word.length; i++) {
+        const r = w.dir === 'h' ? w.row     : w.row + i;
+        const c = w.dir === 'h' ? w.col + i : w.col;
+        if (r >= SIZE || c >= SIZE) return;
+        cells[r + ',' + c] = { letter: w.word[i] };
+      }
+    });
+
+    // Рисуем сетку
+    const gridEl = document.getElementById('cwGrid');
+    gridEl.style.gridTemplateColumns = 'repeat(' + SIZE + ', 1fr)';
+
+    for (let r = 0; r < SIZE; r++) {
+      for (let c = 0; c < SIZE; c++) {
+        const cell = cells[r + ',' + c];
+        const div = document.createElement('div');
+        div.className = 'cw-cell';
+
+        if (cell) {
+          div.classList.add('cw-active');
+          const input = document.createElement('input');
+          input.type = 'text';
+          input.maxLength = 1;
+          input.dataset.answer = cell.letter;
+          input.autocomplete = 'off';
+          input.addEventListener('input', function () {
+            this.value = this.value.replace(/[^А-ЯЁа-яё]/g, '').toUpperCase();
+            // Автопереход
+            const all = gridEl.querySelectorAll('.cw-cell input');
+            const idx = Array.from(all).indexOf(this);
+            if (this.value && idx + 1 < all.length) all[idx + 1].focus();
+          });
+          input.addEventListener('focus', function () { this.select(); });
+          input.addEventListener('keydown', function (e) {
+            if (e.key === 'Backspace' && !this.value) {
+              const all = gridEl.querySelectorAll('.cw-cell input');
+              const idx = Array.from(all).indexOf(this);
+              if (idx > 0) { all[idx - 1].focus(); all[idx - 1].value = ''; }
+            }
+          });
+          div.appendChild(input);
+        } else {
+          div.classList.add('cw-empty');
+        }
+        gridEl.appendChild(div);
+      }
+    }
+
+    // Подсказки
+    const acrossEl = document.getElementById('cwAcross');
+    const downEl = document.getElementById('cwDown');
+    let nAcross = 0, nDown = 0;
+
+    WORDS.forEach(function (w) {
+      const li = document.createElement('li');
+      if (w.dir === 'h') {
+        nAcross++;
+        li.innerHTML = '<b>' + nAcross + '.</b> ' + w.clue +
+          ' <em>(' + w.word.length + ')</em>';
+        acrossEl.appendChild(li);
+      } else {
+        nDown++;
+        li.innerHTML = '<b>' + nDown + '.</b> ' + w.clue +
+          ' <em>(' + w.word.length + ')</em>';
+        downEl.appendChild(li);
+      }
+    });
+
+    // Кнопка «Проверить»
+    document.getElementById('cwCheck').addEventListener('click', function () {
+      const all = gridEl.querySelectorAll('.cw-cell input');
+      let correct = 0;
+      all.forEach(function (input) {
+        const answer = input.dataset.answer;
+        const value = (input.value || '').toUpperCase();
+        input.classList.remove('cw-correct', 'cw-wrong');
+        if (value === answer) {
+          input.classList.add('cw-correct');
+          correct++;
+        } else {
+          input.classList.add('cw-wrong');
+        }
+      });
+      const total = all.length;
+      const result = document.getElementById('cwResult');
+      if (correct === total) {
+        result.className = 'result-box good show';
+        result.textContent = '🎉 Молодец! Все буквы верны! (' + correct + '/' + total + ')';
+        if (typeof markDone === 'function') markDone('ex5');
+      } else {
+        result.className = 'result-box bad show';
+        result.textContent = '📝 Правильных букв: ' + correct + ' из ' + total + '. Красные — неверные.';
+      }
+    });
+
+    // Кнопка «Показать ответ»
+    document.getElementById('cwShow').addEventListener('click', function () {
+      const all = gridEl.querySelectorAll('.cw-cell input');
+      all.forEach(function (input) {
+        input.value = input.dataset.answer;
+        input.classList.remove('cw-wrong');
+        input.classList.add('cw-correct');
+      });
+      const result = document.getElementById('cwResult');
+      result.className = 'result-box info show';
+      result.textContent = '👀 Все ответы показаны. Постарайся запомнить!';
+      if (typeof markDone === 'function') markDone('ex5');
+    });
+  })();
+  </script>
+
+  <style>
+  /* ============================================================
+     СТИЛИ КРОССВОРДА (изолированы через .cw- префикс)
+     ============================================================ */
+  .cw-wrap {
+    background: #fafaff;
+    border: 2px solid #ddd6fe;
+    border-radius: 16px;
+    padding: 20px;
+    margin: 16px 0;
+  }
+  .cw-header h3 {
+    color: #5b3df5;
+    margin-bottom: 8px;
+    font-size: 1.15rem;
+  }
+  .cw-header p {
+    color: #5b5b7a;
+    font-size: .92rem;
+    margin-bottom: 16px;
+  }
+  .cw-grid {
+    display: grid;
+    gap: 3px;
+    max-width: 560px;
+    margin: 0 auto 24px;
+    background: #ece9ff;
+    padding: 8px;
+    border-radius: 12px;
+  }
+  .cw-cell {
+    aspect-ratio: 1 / 1;
+    background: transparent;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cw-cell.cw-empty { background: transparent; }
+  .cw-cell.cw-active {
+    background: #fff;
+    border: 1px solid #c7bff5;
+  }
+  .cw-cell input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    text-align: center;
+    font-family: inherit;
+    font-weight: 800;
+    font-size: 1rem;
+    color: #1e1b4b;
+    background: transparent;
+    text-transform: uppercase;
+    border-radius: 4px;
+    padding: 0;
+  }
+  .cw-cell input:focus {
+    background: #eef2ff;
+    box-shadow: 0 0 0 2px #5b3df5 inset;
+  }
+  .cw-cell input.cw-correct {
+    background: #dcfce7;
+    color: #14532d;
+  }
+  .cw-cell input.cw-wrong {
+    background: #ffe4e6;
+    color: #881337;
+  }
+  .cw-clues {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  .cw-col h4 {
+    color: #5b3df5;
+    font-size: 1rem;
+    margin-bottom: 8px;
+    border-bottom: 2px solid #ddd6fe;
+    padding-bottom: 4px;
+  }
+  .cw-col ol {
+    padding-left: 20px;
+    font-size: .92rem;
+    color: #1e1b4b;
+  }
+  .cw-col li { margin-bottom: 6px; }
+  .cw-col li em {
+    color: #5b5b7a;
+    font-style: normal;
+    font-size: .85rem;
+  }
+  .cw-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+  .cw-buttons .btn {
+    padding: 10px 18px;
+    border-radius: 12px;
+    border: none;
+    font-family: inherit;
+    font-weight: 800;
+    font-size: .95rem;
+    cursor: pointer;
+    color: #fff;
+    transition: transform .18s;
+  }
+  .cw-buttons .btn.check { background: linear-gradient(125deg, #16a34a, #22c55e); }
+  .cw-buttons .btn.show  { background: linear-gradient(125deg, #f59e0b, #fbbf24); }
+  .cw-buttons .btn:hover { transform: translateY(-3px); }
+
+  @media (max-width: 640px) {
+    .cw-clues { grid-template-columns: 1fr; }
+    .cw-grid { max-width: 100%; }
+    .cw-cell input { font-size: .85rem; }
+  }
+  </style>
 </div>
